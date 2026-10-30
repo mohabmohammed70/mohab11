@@ -1,0 +1,426 @@
+
+/* ============================================================
+   ADDITIONS — Skills, Process, Lorry, Avatar, Bento, Pills
+   ============================================================ */
+
+/* ── Avatar Photo ── */
+.avatar-photo-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.avatar-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  display: block;
+  border: 3px solid var(--accent);
+}
+.avatar-photo-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px dashed rgba(232,255,90,0.25);
+  animation: spin 10s linear infinite;
+}
+.badge-dot-live {
+  width: 8px;
+  height: 8px;
+  background: #27ae60;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba(39,174,96,0.4);
+}
+
+/* ── Haulerz logo contain mode ── */
+.proj-cover--contain {
+  object-fit: contain !important;
+  padding: 2rem !important;
+  background: #000 !important;
+}
+
+/* ── Lorry CSS Visual ── */
+.lorry-visual {
+  background: linear-gradient(135deg, #050d1a, #0a1628) !important;
+  overflow: hidden;
+}
+.lorry-scene {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  overflow: hidden;
+}
+.lorry-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.lorry-road {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  background: #0d1b2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+.lorry-lane {
+  height: 3px;
+  width: 48px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 2px;
+  animation: lanePulse 2s ease-in-out infinite;
+}
+.lorry-lane.lane-2 {
+  animation-delay: 0.35s;
+  background: rgba(232,255,90,0.45);
+}
+.lorry-lane.lane-3 {
+  animation-delay: 0.7s;
+}
+.lorry-lane.lane-4 {
+  animation-delay: 1.05s;
+}
+@keyframes lanePulse {
+  0%, 100% { opacity: 0.35; transform: scaleX(1); }
+  50% { opacity: 1; transform: scaleX(1.15); }
+}
+.lorry-wordmark {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  z-index: 1;
+  font-style: italic;
+}
+.lorry-dot { color: var(--accent); }
+.lorry-sub {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.3);
+  z-index: 1;
+}
+.lorry-tag-box {
+  display: flex;
+  gap: 0.45rem;
+  z-index: 1;
+  margin-top: 0.25rem;
+}
+.lorry-tag-box span {
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.22rem 0.65rem;
+  border: 1px solid rgba(232,255,90,0.3);
+  border-radius: 999px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Skills Section ── */
+.skills-section { position: relative; overflow: hidden; }
+.skills-bg-label {
+  position: absolute;
+  right: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-size: clamp(5rem, 10vw, 11rem);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.03);
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  z-index: 0;
+}
+.skills-header { margin-bottom: 3rem; position: relative; z-index: 1; }
+.skills-subtitle {
+  font-size: var(--fs-base);
+  color: var(--text-muted);
+  max-width: 560px;
+  margin-top: 1rem;
+  line-height: 1.75;
+}
+
+/* Skill Bars */
+.skills-bars {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+.skills-bars__label {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 1.75rem;
+}
+.skill-bar-item {
+  display: grid;
+  grid-template-columns: 220px 1fr 54px;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.1rem;
+}
+.skill-bar-item:last-child { margin-bottom: 0; }
+.skill-bar-name {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+.skill-bar-track {
+  height: 4px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+.skill-bar-track::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(232,255,90,0.04));
+  pointer-events: none;
+}
+.skill-bar-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent) 0%, #b8ff00 100%);
+  border-radius: 2px;
+  transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 8px rgba(232,255,90,0.4);
+}
+.skill-bar-fill.animated { width: var(--pct); }
+.skill-bar-pct {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--accent);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Bento Grid */
+.skills-bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+.bento-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 1.5rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.bento-card:hover {
+  border-color: var(--border-2);
+  transform: translateY(-2px);
+}
+.bento-card--wide { grid-column: span 2; }
+.bento-card--highlight {
+  background: rgba(232,255,90,0.04);
+  border-color: rgba(232,255,90,0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.bento-card__eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  margin-bottom: 0.85rem;
+}
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.pill {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  transition: all 0.2s;
+  cursor: default;
+}
+.pill:hover { border-color: var(--accent); color: var(--accent); }
+.pill--accent {
+  background: rgba(232,255,90,0.08);
+  border-color: rgba(232,255,90,0.3);
+  color: var(--accent);
+}
+.bento-stat-num {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.bento-stat-label {
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+}
+
+/* ── Process Section ── */
+.process-header { margin-bottom: 2.5rem; }
+.process-ticker {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  padding: 1.1rem 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+}
+.process-ticker span {
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.ptick {
+  color: var(--accent);
+  font-weight: 400;
+  opacity: 0.45;
+}
+.process-editorial {
+  display: flex;
+  flex-direction: column;
+}
+.pe-step {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 3rem;
+  border-top: 1px solid var(--border);
+  padding: 3rem 0;
+  transition: background 0.35s;
+}
+.pe-step:last-child { border-bottom: 1px solid var(--border); }
+.pe-step:hover { background: rgba(255,255,255,0.008); }
+.pe-step__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.pe-step__num {
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(232,255,90,0.35);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  transition: -webkit-text-stroke-color 0.35s;
+}
+.pe-step:hover .pe-step__num {
+  -webkit-text-stroke-color: var(--accent);
+}
+.pe-step__line {
+  width: 1px;
+  flex: 1;
+  min-height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.08), transparent);
+}
+.pe-step__line--last { background: transparent; }
+.pe-step__right { padding-top: 0.4rem; }
+.pe-step__phase {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+.pe-step__title {
+  font-size: clamp(var(--fs-xl), 2.5vw, var(--fs-2xl));
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.025em;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.pe-step__desc {
+  font-size: var(--fs-base);
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  max-width: 640px;
+}
+.pe-step__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.pe-step__tags span {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  color: var(--text-dim);
+  transition: border-color 0.2s, color 0.2s;
+}
+.pe-step:hover .pe-step__tags span {
+  border-color: rgba(232,255,90,0.2);
+  color: var(--text-muted);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .skills-bento { grid-template-columns: repeat(2, 1fr); }
+  .bento-card--wide { grid-column: span 2; }
+}
+@media (max-width: 640px) {
+  .skills-bento { grid-template-columns: 1fr; }
+  .bento-card--wide { grid-column: span 1; }
+  .skill-bar-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  .skill-bar-pct { display: none; }
+  .pe-step { grid-template-columns: 60px 1fr; gap: 1.25rem; padding: 2rem 0; }
+  .pe-step__num { font-size: 2.2rem; }
+  .process-ticker { gap: 0.6rem; padding: 0.75rem 1rem; border-radius: var(--r-lg); }
+  .process-ticker span { font-size: var(--fs-sm); }
+  .avatar-photo-wrapper { width: 160px; height: 160px; }
+  .lorry-wordmark { font-size: 2.8rem; }
+}
